@@ -32,6 +32,8 @@ namespace API
             services.AddDbContext<DataContext>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+           services.AddCors();
+
           //  services.AddAutoMapper(typeof(Startup));
         }
 
@@ -47,7 +49,9 @@ namespace API
 
             app.UseHttpsRedirection();
             app.UseRouting();
-           // app.UseCors();
+            app.UseCors(options => {
+                options.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3001");
+            });
             app.UseAuthorization();
             app.UseAuthentication();
 
