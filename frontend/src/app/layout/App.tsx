@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import { Product } from '../models/product';
+import Catalog from '../../features/catalog/Catalog';
+import { Typography } from '@mui/material';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -26,13 +28,8 @@ function App() {
 
   return (
     <div>
-      <h1>CAMOUFLAGE</h1>
-      <ul>
-        {products.map(product => (
-          <li key={product.id}>{product.name} - {product.price} </li>
-        ))}
-      </ul>
-      <button onClick={addProduct}>Add a Product</button>
+      <Typography variant='h1'>CAMOUFLAGE</Typography>
+      <Catalog products={products} addProduct={addProduct}/>
     </div>
   )
 }
