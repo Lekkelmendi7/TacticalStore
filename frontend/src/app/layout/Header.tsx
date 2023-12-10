@@ -6,7 +6,7 @@ export default function Header(){
         <AppBar position='static' sx={{mb: 4, bgcolor:"olive"}}>
             <Toolbar>
                 <Typography>
-                    CAMOUFLAGE
+                    CAMOUFLAGEE
                 </Typography>
             </Toolbar>
         </AppBar>
