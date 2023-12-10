@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import { Product } from '../models/product';
 import Catalog from '../../features/catalog/Catalog';
-import { Typography } from '@mui/material';
+import { Container, CssBaseline } from '@mui/material';
+import Header from './Header';
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -27,10 +26,13 @@ function App() {
   }
 
   return (
-    <div>
-      <Typography variant='h1'>CAMOUFLAGE</Typography>
+    <>
+      <CssBaseline />
+      <Header />
+      <Container>
       <Catalog products={products} addProduct={addProduct}/>
-    </div>
+      </Container>
+    </>
   )
 }
 
